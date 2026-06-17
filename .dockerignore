@@ -1,0 +1,37 @@
+# =============================================================================
+# PharmAssist V2 — .dockerignore
+# Keeps the Docker build context lean and secrets out of the image
+# =============================================================================
+
+# --- Secrets (must never enter the image) ------------------------------------
+.env
+.env.*
+
+# --- Database (ephemeral — rebuilt from seed on startup) ---------------------
+pharmacy.db
+*.db
+*.sqlite
+
+# --- Python cache & virtual env (not needed — pip installs fresh) ------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+env/
+.venv/
+*.egg-info/
+
+# --- Git (not needed in container) -------------------------------------------
+.git/
+.gitignore
+
+# --- Dev / docs (not needed in container) ------------------------------------
+.env.example
+seed_demo_data.py
+README.md
+*.md
+
+# --- OS files ----------------------------------------------------------------
+.DS_Store
+Thumbs.db

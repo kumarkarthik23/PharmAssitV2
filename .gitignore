@@ -1,0 +1,74 @@
+# =============================================================================
+# PharmAssist V2 — .gitignore
+# =============================================================================
+
+# --- Secrets & environment ---------------------------------------------------
+.env
+.env.*
+!.env.example        # keep the example template, never the real one
+
+# --- Database -----------------------------------------------------------------
+# pharmacy.db is ephemeral on HF Spaces — rebuilt from seed on every cold start
+pharmacy.db
+*.db
+*.sqlite
+*.sqlite3
+
+# --- Python -------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+wheels/
+pip-wheel-metadata/
+.installed.cfg
+MANIFEST
+
+# --- Virtual environment ------------------------------------------------------
+venv/
+env/
+ENV/
+.venv/
+.env/
+
+# --- OS files -----------------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# --- IDE / editor -------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# --- Logs & temp files --------------------------------------------------------
+*.log
+*.tmp
+*.temp
+logs/
+test_prescriptions/
+test_prescriptions_1.jpg
+test_prescriptions_2.jpg
+test_prescriptions_3.jpg
+test_prescriptions_4.png
+
