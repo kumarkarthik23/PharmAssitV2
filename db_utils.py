@@ -1687,7 +1687,7 @@ def get_restock_suggestions(
         LEFT   JOIN sales   s ON s.drug_id  = d.id
                AND  s.sale_date >= date('now', ? || ' days')
         GROUP  BY d.id
-        HAVING units_sold_recently > 0
+        HAVING units_sold_recently > 0 OR COALESCE(SUM(b.quantity), 0) = 0
         ORDER  BY units_sold_recently DESC
     """, (f"-{days_window}",))
     rows = cur.fetchall()
@@ -1698,7 +1698,9 @@ def get_restock_suggestions(
         units_sold     = r[5]
         daily_velocity = units_sold / days_window
         days_remaining = (
-            round(r[3] / daily_velocity) if daily_velocity > 0 else 9999
+            0 if r[3] == 0
+            else round(r[3] / daily_velocity) if daily_velocity > 0
+            else 9999
         )
         if days_remaining <= low_days_threshold:
             suggestions.append({
