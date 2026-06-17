@@ -14,7 +14,7 @@ tags:
   - pharmacy
   - sqlite
   - python
-short_description: AI-powered pharmacy — scan prescriptions, inventory, analytics
+short_description: AI pharmacy - scan prescriptions, inventory & analytics
 ---
 
 <div align="center">
