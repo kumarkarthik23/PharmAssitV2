@@ -65,22 +65,24 @@ _SEED_DRUGS: list[tuple] = [
 # Batches: (drug_id, quantity, expiry_date)
 # Drug 5 has TWO batches for FIFO testing. Drug 4 (Hexigel) = 0 qty.
 _SEED_BATCHES: list[tuple[int, int, str]] = [
-    # Stock levels are set high enough to cover 6 months of demo sales history
-    # Final quantities after seeding reflect real-looking current stock
-    (1, 2500, "2027-08-01"),   # Augmentin 625mg   — high demand, good stock
-    (2,   50, "2027-06-01"),   # Enzoflam          — will deplete to LOW (6 units)
+    # Quantities calculated to produce realistic remaining stock after 180 days of sales.
+    # High-velocity drugs (Augmentin, Ultracal-D, Diclofenac, Bonphrozy, Clonthogan)
+    # will show in Restock Suggestions (≤30 days remaining at current velocity).
+    # Low-stock drugs (Enzoflam, Relentas, Prednisolone) deplete to alert levels.
+    (1, 2018, "2027-08-01"),   # Augmentin 625mg   — depletes to ~10 units → RESTOCK
+    (2,   50, "2027-06-01"),   # Enzoflam          — depletes to 6 units → LOW STOCK
     (3,  600, "2026-07-12"),   # Pan-D 40mg        — expiring ~25 days
-    (4,    0, "2027-03-01"),   # Hexigel           — OUT OF STOCK (showcases alert)
-    (5,  500, "2026-12-01"),   # Ultraflex Plus    — batch 1 FIFO (earlier expiry)
+    (4,    0, "2027-03-01"),   # Hexigel           — OUT OF STOCK
+    (5,  480, "2026-12-01"),   # Ultraflex Plus    — batch 1 FIFO (earlier expiry)
     (5,  200, "2027-07-01"),   # Ultraflex Plus    — batch 2 FIFO
-    (6,   60, "2027-09-01"),   # Relentas          — will deplete to LOW (8 units)
-    (7, 2500, "2027-10-01"),   # Ultracal-D        — high demand, good stock
-    (8,  600, "2027-04-01"),   # Cartilix          — good stock
-    (9, 2000, "2026-08-17"),   # Diclofenac 50mg   — expiring ~60 days
-    (10,  40, "2026-05-01"),   # Omeprazole Cap    — EXPIRED (showcases write-off)
-    (11, 500, "2027-05-01"),   # Bonphrozy 2mg     — good stock
-    (12, 400, "2027-06-01"),   # Clonthogan        — good stock
-    (13,  50, "2027-05-01"),   # Prednisolone      — will deplete to LOW (5 units)
+    (6,   60, "2027-09-01"),   # Relentas          — depletes to 8 units → LOW STOCK
+    (7, 2037, "2027-10-01"),   # Ultracal-D        — depletes to ~25 units → RESTOCK
+    (8,  465, "2027-04-01"),   # Cartilix          — good stock remaining
+    (9, 1525, "2026-08-17"),   # Diclofenac 50mg   — depletes to ~15 units → RESTOCK
+    (10,  340, "2026-05-01"),  # Omeprazole Cap    — EXPIRED (supports sales history)
+    (11, 441, "2027-05-01"),   # Bonphrozy 2mg     — depletes to ~50 units → RESTOCK
+    (12, 351, "2027-06-01"),   # Clonthogan        — depletes to ~60 units → RESTOCK
+    (13,  50, "2027-05-01"),   # Prednisolone      — depletes to 5 units → LOW STOCK
 ]
 
 # ---------------------------------------------------------------------------
