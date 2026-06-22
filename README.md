@@ -30,7 +30,7 @@ short_description: AI pharmacy - scan prescriptions, inventory & analytics
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 *Scan handwritten prescriptions · Manage batch-tracked inventory · Monitor pharmacy analytics*
-
+**Demo Link: https://huggingface.co/spaces/Karthik2399/PharmAssistV2**
 **Demo PIN: `1234`**
 
 </div>
