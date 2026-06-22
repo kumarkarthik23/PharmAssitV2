@@ -1,24 +1,3 @@
----
-title: PharmAssist V2
-emoji: 💊
-colorFrom: blue
-colorTo: indigo
-sdk: docker
-pinned: false
-license: mit
-tags:
-  - fastapi
-  - healthcare
-  - gemini
-  - ai
-  - pharmacy
-  - sqlite
-  - python
-short_description: AI pharmacy - scan prescriptions, inventory & analytics
----
-
-<div align="center">
-
 # PharmAssist V2
 
 **AI-powered pharmacy management**
